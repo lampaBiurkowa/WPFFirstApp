@@ -13,6 +13,7 @@ namespace wpf
     {
         public Vegetable FavouriteVegetable { get; set; }
         public string Description { get; set; }
+        public DateTime ConfirmDateTime { get; set; }
         public DateTime UpdateDateTime { get; set; }
 
         public User(string description, Vegetable favouriteVegetable, DateTime updateDateTime)

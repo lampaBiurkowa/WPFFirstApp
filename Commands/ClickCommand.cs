@@ -12,10 +12,12 @@ namespace wpf
 
         public event EventHandler CanExecuteChanged
         {
-            add {    
+            add
+            {    
                 CommandManager.RequerySuggested += value;    
             }
-            remove {    
+            remove
+            {    
                 CommandManager.RequerySuggested -= value;    
             }    
         }    

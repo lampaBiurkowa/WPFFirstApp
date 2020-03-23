@@ -10,6 +10,16 @@ namespace wpf
         private User user;
         public ICommand ClickCommand { get; set; }
 
+        public DateTime ConfirmDateTime
+        {
+            get => user.ConfirmDateTime;
+            set
+            {
+                user.ConfirmDateTime = value;
+                OnPropertyChange("ConfirmDateTime");
+            }
+        }
+
         public string Description
         {
             get => user.Description;
@@ -56,7 +66,7 @@ namespace wpf
 
         private void handleButtonClicked(object parameter)
         {
-            MessageBox.Show("Hello... ");
+            ConfirmDateTime = DateTime.Now;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
