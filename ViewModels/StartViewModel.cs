@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace wpf
 {
     public class StartViewModel : INotifyPropertyChanged
     {
         private User user;
-        private bool Inited = false;
+        public ICommand ClickCommand { get; set; }
 
         public string Description
         {
@@ -44,6 +46,17 @@ namespace wpf
         public StartViewModel()
         {
             user = new User();
+            ClickCommand = new ClickCommand(handleButtonClicked, canClickButton);
+        }
+
+        private bool canClickButton(object parameter)
+        {
+            return !string.IsNullOrWhiteSpace(user.Description);
+        }
+
+        private void handleButtonClicked(object parameter)
+        {
+            MessageBox.Show("Hello... ");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
