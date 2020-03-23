@@ -3,13 +3,13 @@
 namespace wpf
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Start.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Start : Window
     {
         private StartViewModel viewModel;
 
-        public MainWindow()
+        public Start()
         {
             InitializeComponent();
             viewModel = new StartViewModel();
