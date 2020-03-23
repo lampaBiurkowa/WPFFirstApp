@@ -1,0 +1,19 @@
+﻿using System.Windows;
+
+namespace wpf
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        private StartViewModel viewModel;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            viewModel = new StartViewModel();
+            DataContext = viewModel;
+        }
+    }
+}
