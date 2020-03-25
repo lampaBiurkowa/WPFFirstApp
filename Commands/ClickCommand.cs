@@ -14,7 +14,7 @@ namespace wpf
         {
             add
             {    
-                CommandManager.RequerySuggested += value;    
+                CommandManager.RequerySuggested += value;
             }
             remove
             {    

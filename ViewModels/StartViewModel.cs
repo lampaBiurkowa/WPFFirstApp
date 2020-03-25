@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows;
 using System.Windows.Input;
 
 namespace wpf
@@ -16,7 +15,7 @@ namespace wpf
             set
             {
                 user.ConfirmDateTime = value;
-                OnPropertyChange("ConfirmDateTime");
+                OnPropertyChange(nameof(ConfirmDateTime));
             }
         }
 
@@ -27,8 +26,8 @@ namespace wpf
             {
                 user.Description = value;
                 user.UpdateDateTime = DateTime.Now;
-                OnPropertyChange("Description");
-                OnPropertyChange("UpdateDateTime");
+                OnPropertyChange(nameof(Description));
+                OnPropertyChange(nameof(UpdateDateTime));
             }
         }
 
@@ -38,8 +37,8 @@ namespace wpf
             set
             {
                 user.FavouriteVegetable = value;
-                OnPropertyChange("FavouriteVegetable");
-                OnPropertyChange("UpdateDateTime");
+                OnPropertyChange(nameof(FavouriteVegetable));
+                OnPropertyChange(nameof(UpdateDateTime));
             }
         }
 
@@ -49,7 +48,7 @@ namespace wpf
             set
             {
                 user.UpdateDateTime = value;
-                OnPropertyChange("UpdateDateTime");
+                OnPropertyChange(nameof(UpdateDateTime));
             }
         }
 

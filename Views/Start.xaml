@@ -8,14 +8,19 @@
 
         Background="#232323" Foreground="White"
         Title="jea" Height="400" Width="600">
+
+    <Window.Resources>
+        <local:VegetableSelectedConverter x:Key="vegetableConverter" />
+        <local:VegetableNameConverter x:Key="vegetableNameConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="auto"/> 
             <ColumnDefinition Width="auto"/> 
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -31,12 +36,12 @@
         <TextBlock Grid.Column="1" Grid.Row="1" Text="Write something about you..."/>
         <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" MinHeight="100" Width="200" Margin="10, 0, 0, 0"/>
         <!-- Row 2 -->
-        <TextBlock Grid.Column="1" Grid.Row="2" Text="Select yout favourite vegetable"/>
-        <RadioButton Grid.Column="2" Grid.Row="2" IsChecked="True" Margin="10,5,0,0" GroupName="Vegetables" Content="Potato" Foreground="White"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Select your favourite vegetables"/>
+        <RadioButton Grid.Column="2" Grid.Row="2" IsChecked="{Binding FavouriteVegetable, Converter={StaticResource ResourceKey=vegetableConverter}, ConverterParameter=POTATO}" Margin="10,5,0,0" Content="Potato" Foreground="White"/>
         <!-- Row 3 -->
-        <RadioButton Grid.Column="2" Grid.Row="3" Margin="10,5,0,0" GroupName="Vegetables" Content="Carrot" Foreground="White"/>
+        <RadioButton Grid.Column="2" Grid.Row="3" IsChecked="{Binding FavouriteVegetable, Converter={StaticResource ResourceKey=vegetableConverter}, ConverterParameter=CARROT}" Margin="10,5,0,0" Content="Carrot" Foreground="White"/>
         <!-- Row 4 -->
-        <RadioButton Grid.Column="2" Grid.Row="4" Margin="10,5,0,0" GroupName="Vegetables" Content="Cabbage" Foreground="White"/>
+        <RadioButton Grid.Column="2" Grid.Row="4" IsChecked="{Binding FavouriteVegetable, Converter={StaticResource ResourceKey=vegetableConverter}, ConverterParameter=CABBAGE}" Margin="10,5,0,0" Content="Cabbage" Foreground="White"/>
         <!-- Row 5 -->
         <Button x:Name="ConfirmButton" Grid.Column="1" Grid.Row="5" Command="{Binding ClickCommand}" Background="Azure" Content="Confirm" Margin="5"/>
         <TextBlock Grid.Column="2" Grid.Row="5" Text="{Binding Description}" Margin="5"/>
@@ -46,5 +51,8 @@
         <!-- Row 7 -->
         <TextBlock Grid.Column="1" Grid.Row="7" Text="Last confirmed on:" Margin="5"/>
         <TextBlock Grid.Column="2" Grid.Row="7" Text="{Binding ConfirmDateTime}" Margin="5"/>
+        <!-- Row 8 -->
+        <TextBlock Grid.Column="1" Grid.Row="8" Text="Selected vegetables:" Margin="5"/>
+        <TextBlock Grid.Column="2" Grid.Row="8" Text="{Binding FavouriteVegetable, Converter={StaticResource ResourceKey=vegetableNameConverter}}" Margin="5"/>
     </Grid>
 </Window>
