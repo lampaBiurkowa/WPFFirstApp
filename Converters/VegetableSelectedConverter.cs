@@ -15,7 +15,6 @@ namespace wpf
         {
             Enum.TryParse((string)parameter, true, out Vegetable vegetable);
             return vegetable;
-            //return (bool)value ? parameter : Binding.DoNothing;
         }
     }
 }

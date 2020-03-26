@@ -20,7 +20,14 @@ namespace wpf
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value.ToString() == "Cabbage")
+                return Vegetable.CABBAGE;
+            else if (value.ToString() == "Carrot")
+                return Vegetable.CARROT;
+            else if (value.ToString() == "Potato")
+                return Vegetable.POTATO;
+            else
+                throw new Exception($"Unknown vegetable {value.ToString()}");
         }
     }
 }
